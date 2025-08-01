@@ -1,0 +1,144 @@
+
+  -- Basic mode in file traversal
+
+h => go left
+j => go up
+k => go down
+l => go right
+i => insert mode
+<esc> => normal mode
+G => Jump to the last line of the file
+gg => Jump to the first line of the file
+
+
+  -- nvim-tree
+
+a => create a new file or folder
+d => delete selected file/folder
+r => rename file
+x => cut
+c => copy
+p => paste
+yy => copy filename
+? => toggle help inside nvim-tree
+
+:source%
+
+:NvimTreeToggle => If the tree is closed, open it
+:NvimTreeFocus => Go back to the tree from normal mode
+:NvimTreeRefresh => Restart neovim tree to apply changes in the config file
+:NvimTreeClose => Close the tree
+:NvimTreeOpen => Open the tree
+:NvimTreeFindFile => Reveal current file in the tree
+
+  -- Nvim-tree
+:Neotree filesystem reveal left
+
+
+:Telescope find_files
+:Telescope live_grep
+
+:Lazy
+
+:Lazy sync
+
+:LspInfo
+
+:TSBufEnable highlight
+
+:set filetype?
+
+:InspectTree
+
+
+  -- Basic command (normal mode)
+
+:w => write (save) the current file
+:q => quit if no unsaved changes
+:wq => write and quit
+:q! => force quit
+:wa :qa => save all files, then quit
+:sqa => save all and quit all buffers
+
+dd => delete the entire current line
+V d => Select the whole line, then delete
+
+D => Delete from cursor to end of line
+:n d => Delete line number n (e.g., L42d deletes line 42)
+:10,20d => Delete lines 10 through 20
+:.+1,.+3d => Delete next 3 lines
+d3j => Delete 3 lines starting from current line
+dG => Delete from current line to end of file
+:g/attern/d => Delete all lines matching `pattern` (e.g., :g/TODO/d)
+
+"_dd => Delete the current line into the "black hole" register, so the previous yank is preserved
+
+u => undo
+
+<C-r> => redo
+
+
+  -- Telescope
+<C-p> => Find a file
+
+  -- Buffer navigation
+
+:bnext 
+:bn => Go to the next buffer
+:bprev
+:bp => Go to the previous buffer
+:buffers
+:ls => Show all open buffers
+:buffer n => Go to specific buffer number
+:bd => Close current buffer (without quitting)
+
+  -- Basic find and replace (normal mode)
+
+:[range]s/{pattern}/{replacement}/flags
+
+Example:
+
+:s/foo/bar/ => Replace in current line
+:s/foo/bar/g => Replace in current lint (all matches)
+:%s/foo/bar/ => Replace in entire file
+:%s/foo/bar/g => Replace in entire file (all matches)
+:%s/foo/bar/gc => Replace with confirmation
+:'<,'>s/foo/baar/g => Replace only in visual selection
+
+  -- Clear the search or highlight
+
+:noh
+:nohlsearch
+
+gd  => Go to definition
+<C-o> => Go back
+gD => See the path file without jumping
+
+  -- Find text on a file
+
+/<keyword>
+
+  -- Example 
+/foo
+
+  -- For navigation after finding the keyword
+n => go to the next match
+(shift + n) => go to the previous match
+
+
+  -- How to do copy/cut and paste
+- Esc => normal mode
+- v + select with arrow keys
+- y => to copy || d => to cut
+- p => paste after cursor
+
+
+  -- Delete after word
+Ctrl + W => on Insert mode, it's equivalent of ctrl + backspace in VSCode
+
+
+:set number => Display number
+:set nonumber => Display number off
+
+:set number relativenumber
+:set norelativenumber

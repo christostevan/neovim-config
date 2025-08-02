@@ -28,6 +28,9 @@ return {
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
             
             local lspconfig = require("lspconfig")
+
+		    local omni_sharp = vim.fn.exepath("omnisharp")
+
             lspconfig.lua_ls.setup({
                 capabilities = capabilities
             })
@@ -37,6 +40,14 @@ return {
             lspconfig.tsserver.setup({
                 capabilities = capabilities
             })
+
+            lspconfig.omnisharp.setup({
+			    cmd = { omni_sharp, "--languageserver", "--hostPID", tostring(vim.fn.getpid()) },
+
+			    enable_roslyn_analyze = true,
+			    organize_imports_on_format = true,
+			    enable_import_completion = true
+		    })
             
             vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
             vim.keymap.set('n', '<leader>gd', vim.lsp.buf.definition, {})
